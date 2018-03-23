@@ -64,15 +64,10 @@ for y in range(0, len(links)):
 print "#################################"
 print "############ D O N E ############"
 print "#################################"
-
-### TO DO ###
-# Otwieranie wszystkich linkow w nowych kartach a potem tylko zmiana karty i klik enroll (moze sypac blad z timeoutem)
-# Uruchamianie sie samoczynnie w nocy i gaszenie kompa -- to juz raczej kazdy we wlasnym OS
-# Okienka z firefoxa musza byc otwierane w tle
-# Wysylka maila/sms-a z iloscia kursow dodanych i ich nazwami
-# Przyspieszyc skrypt
-# wyprintowane podsumowanie, ile kursow dodano, ile pominieto, a ile juz bylo na koncie
-# wpisywanie loginu i hasla po uruchomieniu skryptu w konsoli, najlepiej opcja zapamietania loginu i hasla z zapisem do zmiennej
-# tworzenie pliku txt z podsumowaniem dziennym
-# jakos moze da sie przypiac uruchomienie bota do stworzenia nowego tematu z kursami udemy?
+## Make a finish sound
+print "\a"
+time.sleep(0.2)
+print "\a"
+time.sleep(0.2)
+print "\a"
 
