@@ -2,14 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
+## Dla wygody mozna ustawic haslo z reki, wtedy wystarczy do zmiennej yourLogin przypisac stringa z loginem i analogicznie z haslem (np: yourlogin = 'mail@gmail.com') 
+yourLogin = raw_input('Enter your login: ')
+yourPassword = raw_input('Enter your password: ')
+print 'Your login details are:'
+print 'Login: ' + yourLogin
+print 'Password: ' + yourPassword
+
 driver = webdriver.Firefox()
-
-########## Enter your account data ##########
-
-yourLogin = ''
-yourPassword = ''
-
-#############################################
 
 def initAndLogin(login, password):
 	driver.get('https://www.udemy.com/')
