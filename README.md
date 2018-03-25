@@ -2,7 +2,7 @@
 This is a simple python program to get daily dose of free udemy courses.
 
 You need:
-1. Python 3.x
+1. Python 2.7.x
 https://www.python.org/downloads/
 
 2. Selenium for python
