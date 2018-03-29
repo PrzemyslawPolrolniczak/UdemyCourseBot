@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 from sys import exit
+import datetime
 
 ## Dla wygody mozna ustawic haslo z reki, wtedy wystarczy do zmiennej yourLogin przypisac stringa z loginem i analogicznie z haslem (np: yourlogin = 'mail@gmail.com') 
 yourLogin = raw_input('Enter your login: ')
@@ -71,6 +72,17 @@ for y in range(0, len(links)):
 		print "!!!!!!!!!!UNKNOWN ERROR!!!!!!!!!!"
 		unknowErrors.append(hrefList[y].split('/')[3])
 		driver.get(back)
+currentTime = datetime.datetime.now()
+
+def printCourseList(inputVal):
+		tempCourseList = ""
+	 	for course in inputVal:
+			 tempCourseList += course + "\n"
+		return tempCourseList
+
+writeLog = open("log " + currentTime.strftime("%Y-%m-%d") + ".txt", "w")
+writeLog.write('Date: ' + currentTime.strftime("%Y-%m-%d %H:%M") + "\n" + 'Courses added: ' + str(len(addedCourses)) + "\n" + 'Courses not free anymore: ' + str(len(notFreeCourses)) + "\n" + 'Courses already owned: ' + str(len(alreadyOwnedCourses)) + "\n" + 'Unknown errors: ' + str(len(unknowErrors)) + "\n\n" + "List of added Courses: \n" + str(printCourseList(addedCourses)) + "\n\n" + 'List of already owned courses: \n' + str(printCourseList(alreadyOwnedCourses)) + "\n\n" + "List of paid courses: \n" + str(printCourseList(notFreeCourses)) + "\n*****************************************************\n\n")
+writeLog.close()
 print "#################################"
 print "############ D O N E ############"
 print "#################################"
@@ -96,12 +108,6 @@ def overviewLogic():
 		return additionalInfo	
 	print "\n"
 	character = typeChar()
-
-	def printCourseList(inputVal):
-		tempCourseList = ""
-	 	for course in inputVal:
-			 tempCourseList += course + "\n"
-		return tempCourseList
 
 	def f(case):
 		return {
@@ -129,5 +135,4 @@ exit()
 # Wysylka maila/sms-a z iloscia kursow dodanych i ich nazwami
 # Przyspieszyc skrypt
 # opcja zapamietania loginu i hasla z zapisem do zmiennej
-# tworzenie pliku txt z podsumowaniem dziennym
 # jakos moze da sie przypiac uruchomienie bota do stworzenia nowego tematu z kursami udemy?
